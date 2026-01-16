@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:seguromedico/features/auth/domain/entities/auth_session.dart';
-import 'package:seguromedico/features/auth/domain/usecases/login_use_case.dart';
+import 'package:seguromedico/features/auth/domain/usecases/login/login_use_case.dart';
 import 'auth_event.dart';
 import 'auth_state.dart';
 

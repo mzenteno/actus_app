@@ -6,7 +6,7 @@ import 'package:seguromedico/features/auth/data/repositories/auth_repository_imp
 import 'package:seguromedico/features/auth/data/repositories/fake_auth_repository_impl.dart';
 import 'package:seguromedico/features/auth/data/repositories/secure_storage_impl.dart';
 import 'package:seguromedico/features/auth/domain/repositories/auth_repository.dart';
-import 'package:seguromedico/features/auth/domain/usecases/login_use_case.dart';
+import 'package:seguromedico/features/auth/domain/usecases/login/login_use_case.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 final getIt = GetIt.instance;

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:seguromedico/core/theme/app_theme.dart';
-import 'package:seguromedico/features/auth/presentation/pages/login_page.dart';
-import 'package:seguromedico/features/doctor/presentation/pages/dashboard_doctor_page.dart';
+import 'package:seguromedico/features/auth/presentation/pages/login/login_page.dart';
+import 'package:seguromedico/features/doctor/presentation/pages/main/main_doctor.dart';
 import 'core/di/injection.dart';
 
 void main() async {
@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => const LoginPage(),
-        '/doctor-dashboard': (context) => const DashboardDoctorPage(),
+        '/doctor-dashboard': (context) => const MainDoctor(),
       },
     );
   }

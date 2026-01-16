@@ -2,22 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:seguromedico/core/theme/app_color.dart';
 import 'package:seguromedico/core/theme/app_text_styles.dart';
 
-class MetricsDashboardDoctorWidget extends StatefulWidget {
-  const MetricsDashboardDoctorWidget({super.key});
+class MetricsCardWidget extends StatelessWidget {
+  const MetricsCardWidget({super.key});
 
-  @override
-  State<MetricsDashboardDoctorWidget> createState() =>
-      _MetricsDashboardDoctorWidgetState();
-}
-
-class _MetricsDashboardDoctorWidgetState
-    extends State<MetricsDashboardDoctorWidget> {
-  bool isLoading = false;
-
-  @override
-  void initState() {
-    super.initState();
-  }
+  final bool isLoading = false;
 
   @override
   Widget build(BuildContext context) {
@@ -26,22 +14,22 @@ class _MetricsDashboardDoctorWidgetState
     }
 
     return SizedBox(
-      height: 180,
+      height: 150,
       child: ListView(
         scrollDirection: Axis.horizontal,
         children: [
           SizedBox(
-            width: 160,
+            width: 145,
             child: _buildRatingCard(),
           ),
           const SizedBox(width: 12),
           SizedBox(
-            width: 200,
+            width: 240,
             child: _buildConsultationsCard(),
           ),
           const SizedBox(width: 12),
           SizedBox(
-            width: 200,
+            width: 250,
             child: _buildConsultationsCard(),
           ),
         ],
@@ -51,10 +39,10 @@ class _MetricsDashboardDoctorWidgetState
 
   Widget _buildRatingCard() {
     return Container(
-      padding: const EdgeInsets.all(16),
+      padding: const EdgeInsets.all(15),
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(15),
         boxShadow: [
           BoxShadow(
             color: AppColors.background,
@@ -69,27 +57,18 @@ class _MetricsDashboardDoctorWidgetState
             '4.8',
             style: AppTextStyles.displayMedium(fontWeight: FontWeight.w400),
           ),
-          const SizedBox(height: 5),
+          const SizedBox(height: 22),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Icon(Icons.star_rounded, color: Colors.amber, size: 25),
-              const Icon(Icons.star_rounded, color: Colors.amber, size: 25),
-              const Icon(Icons.star_rounded, color: Colors.amber, size: 25),
-              const Icon(Icons.star_rounded, color: Colors.amber, size: 25),
-              const Icon(Icons.star_rounded, color: Colors.amber, size: 25),
+              const Icon(Icons.star_rounded, color: Colors.amber, size: 23),
+              const Icon(Icons.star_rounded, color: Colors.amber, size: 23),
+              const Icon(Icons.star_rounded, color: Colors.amber, size: 23),
+              const Icon(Icons.star_rounded, color: Colors.amber, size: 23),
+              const Icon(Icons.star_rounded, color: Colors.amber, size: 23),
             ],
           ),
           const SizedBox(height: 5),
-          Text(
-            'Valoración',
-            style: AppTextStyles.bodySmall(fontWeight: FontWeight.w500),
-          ),
-          Text(
-            'promedio',
-            style: AppTextStyles.bodySmall(fontWeight: FontWeight.w500),
-          ),
-          const SizedBox(height: 2),
           Text('47 opiniones',
               style: AppTextStyles.bodySmall()
                   .copyWith(color: Colors.grey.shade600)),
@@ -100,10 +79,10 @@ class _MetricsDashboardDoctorWidgetState
 
   Widget _buildConsultationsCard() {
     return Container(
-      padding: const EdgeInsets.all(16),
+      padding: const EdgeInsets.all(15),
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(15),
         boxShadow: [
           BoxShadow(
             color: AppColors.background,
@@ -115,8 +94,6 @@ class _MetricsDashboardDoctorWidgetState
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text('Consultas del mes', style: AppTextStyles.bodyMedium()),
-          const SizedBox(height: 10),
           Center(
             child: Text('12',
                 style:
@@ -130,14 +107,14 @@ class _MetricsDashboardDoctorWidgetState
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    'Progreso mensual',
-                    style: AppTextStyles.labelSmall().copyWith(
+                    'Consultas este mes',
+                    style: AppTextStyles.bodySmall().copyWith(
                       color: AppColors.textPrimary,
                     ),
                   ),
                   Text(
                     '12/15',
-                    style: AppTextStyles.labelSmall().copyWith(
+                    style: AppTextStyles.bodySmall().copyWith(
                       color: AppColors.textPrimary,
                       fontWeight: FontWeight.w600,
                     ),
@@ -160,10 +137,9 @@ class _MetricsDashboardDoctorWidgetState
               ),
               const SizedBox(height: 4),
               Text(
-                '80% de la meta alcanzada',
-                style: AppTextStyles.labelSmall().copyWith(
-                  color: Colors.grey.shade600,
-                ),
+                'Meta alcanzada 80%',
+                style: AppTextStyles.bodySmall()
+                    .copyWith(color: Colors.grey.shade600),
               ),
             ],
           ),

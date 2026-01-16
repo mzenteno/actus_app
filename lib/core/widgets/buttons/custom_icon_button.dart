@@ -18,7 +18,7 @@ class CustomIconButton extends StatelessWidget {
     this.backgroundColor = AppColors.background,
     required this.onPressed,
     this.margin = const EdgeInsets.symmetric(horizontal: 4),
-    this.iconSize = 22,
+    this.iconSize = 24,
     this.padding = const EdgeInsets.all(2),
     this.borderRadius = 20,
   });
@@ -37,6 +37,8 @@ class CustomIconButton extends StatelessWidget {
         onPressed: onPressed,
         icon: Icon(
           icon,
+          fill: 0.0,
+          weight: 300,
           color: iconColor,
           size: iconSize,
         ),

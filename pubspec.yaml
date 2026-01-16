@@ -23,6 +23,7 @@ dependencies:
   google_fonts: ^6.1.0
 
   cupertino_icons: ^1.0.8
+  material_symbols_icons: ^4.2892.0
 
 dev_dependencies:
   flutter_test:
@@ -40,7 +41,8 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/images/icon_doctor.webp
+    - assets/images/icon_doctor_dashboard.webp
+    - assets/images/icon_patient_dashboard.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

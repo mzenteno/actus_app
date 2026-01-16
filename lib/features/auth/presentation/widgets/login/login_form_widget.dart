@@ -9,7 +9,7 @@ import 'package:seguromedico/core/widgets/inputs/textfield_input.dart';
 import 'package:seguromedico/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:seguromedico/features/auth/presentation/bloc/auth_event.dart';
 import 'package:seguromedico/features/auth/presentation/bloc/auth_state.dart';
-import 'package:seguromedico/features/auth/presentation/widgets/auth_header.dart';
+import 'package:seguromedico/features/auth/presentation/widgets/login/auth_header.dart';
 
 class LoginFormWidget extends StatefulWidget {
   final AuthState state;
@@ -40,31 +40,30 @@ class LoginFormWidgetState extends State<LoginFormWidget> {
   void _submitForm(BuildContext context) {
     if (_formKey.currentState!.validate()) {
       context.read<AuthBloc>().add(
-          LoginEvent(_emailController.text.trim(), _passwordController.text));
+          //LoginEvent(_emailController.text.trim(), _passwordController.text));
+          LoginEvent("test@test.com", "123456"));
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: AppColors.primary, // Fondo azul general
-      body: Column(
+    return SafeArea(
+      bottom: false,
+      child: Column(
         children: [
           // PARTE AZUL FIJA (NO SCROLL)
-          SafeArea(
-            bottom: false,
-            child: Container(
-              height: MediaQuery.of(context).size.height * 0.35,
-              padding: const EdgeInsets.symmetric(horizontal: 24),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  AuthHeader(
-                    title: "Angeles\ncuidando tu salud",
-                    subtitle: "Para continuar inicia sesión",
-                  ),
-                ],
-              ),
+          Container(
+            color: AppColors.primary,
+            height: MediaQuery.of(context).size.height * 0.35,
+            padding: const EdgeInsets.symmetric(horizontal: 24),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                AuthHeader(
+                  title: "Angeles\ncuidando tu salud",
+                  subtitle: "Para continuar inicia sesión",
+                ),
+              ],
             ),
           ),
 
@@ -104,9 +103,7 @@ class LoginFormWidgetState extends State<LoginFormWidget> {
                               return null;
                             },
                           ),
-
                           const SizedBox(height: 20),
-
                           PasswordInput(
                             label: 'Contraseña',
                             controller: _passwordController,
@@ -120,7 +117,6 @@ class LoginFormWidgetState extends State<LoginFormWidget> {
                               return null;
                             },
                           ),
-
                           Align(
                             alignment: Alignment.centerRight,
                             child: Padding(
@@ -136,17 +132,14 @@ class LoginFormWidgetState extends State<LoginFormWidget> {
                               ),
                             ),
                           ),
-
                           const SizedBox(height: 24),
-
                           PrimaryButton(
                             text: 'INICIAR SESION',
                             onPressed: () => _submitForm(context),
                             isLoading: widget.state is AuthLoading,
                           ),
-
                           Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 20),
+                            padding: const EdgeInsets.symmetric(vertical: 15),
                             child: Center(
                               child: Text.rich(
                                 TextSpan(
@@ -172,17 +165,9 @@ class LoginFormWidgetState extends State<LoginFormWidget> {
                               ),
                             ),
                           ),
-
-                          const SizedBox(height: 30),
-
                           SocialButtons(
                             type: SocialAuthType.google,
                             onPressed: () {},
-                          ),
-
-                          // Espacio para el teclado
-                          SizedBox(
-                            height: MediaQuery.of(context).viewInsets.bottom,
                           ),
                         ],
                       ),
